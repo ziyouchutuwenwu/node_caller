@@ -20,7 +20,7 @@ handle_call({node_call, Module, Function, Args}, _From, #state_record{node_prefi
 	Result = (
 		if
 			length(Nodes) > 0 ->
-				RadomIndex = random:uniform(9) rem length(Nodes) + 1,
+				RadomIndex = rand:uniform(9) rem length(Nodes) + 1,
 				Node = lists:nth(RadomIndex, Nodes),
 %%                 apply模式调用，需要在参数上加[]
 				RpcResult = rpc:call(Node, Module, Function, [Args]),
